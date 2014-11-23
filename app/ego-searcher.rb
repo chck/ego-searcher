@@ -2,7 +2,7 @@
 #-*- coding:utf-8 -*-
 require 'sinatra/base'
 require 'sinatra/reloader'
-require_relative 'services/followers'
+require_relative 'services/analyze-follower'
 
 class EgoSearcher < Sinatra::Base
   get '/' do
