@@ -6,7 +6,7 @@ require 'yaml'
 class DescFollower
   #initializeにしない理由がある。スレッドセーフ的な
   def get_twitter_client
-    conf = YAML::load(open("../../../API.yaml"))
+    conf = YAML::load_file(File.join("#{__dir__}/../../config", "config.yml"))
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key = conf["tw_consumer_key"]
       config.consumer_secret = conf["tw_consumer_secret"]

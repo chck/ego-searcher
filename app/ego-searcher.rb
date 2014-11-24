@@ -2,16 +2,23 @@
 #-*- coding:utf-8 -*-
 require 'sinatra/base'
 require 'sinatra/reloader'
+require "sinatra/config_file"
 require_relative 'services/analyze-follower'
 
 class EgoSearcher < Sinatra::Base
+  configure :development do
+    register Sinatra::Reloader
+  end
+
   get '/' do
-    @followers = (1..5)#Followers.all
     erb :index
   end
 
   post '/analysis' do
-    #@followers = Followers.all
-    redirect '/'
+    puts "start!"
+    af = AnalyzeFollower.new
+    @keywords = af.get_fw_kw(params[:id])
+    puts "done!"
+    erb :index
   end
 end

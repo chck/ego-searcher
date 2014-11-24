@@ -55,6 +55,6 @@ PLATFORMS
 
 DEPENDENCIES
   natto
-  sinatra (~> 1.4.4)
+  sinatra
   sinatra-contrib
   twitter

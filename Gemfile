@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 
-gem 'sinatra', '~> 1.4.4'
-gem 'sinatra-contrib'
+gem 'sinatra', :require => 'sinatra/base'
 gem 'twitter'
 gem 'natto'
+
+group :development do 
+  gem 'sinatra-contrib', :require => 'sinatra/reloader'
+end

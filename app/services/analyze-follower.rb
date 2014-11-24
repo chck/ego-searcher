@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 #-*- coding:utf-8 -*-
-require './analyze-text'
-require './desc-follower'
+#require './analyze-text'
+require_relative 'analyze-text'
+require_relative 'desc-follower'
+#require './desc-follower'
 
 class AnalyzeFollower
   def initialize
@@ -11,19 +13,15 @@ class AnalyzeFollower
   end
 
   def get_fw_kw(twitter_id)
-    puts "-----GET FOLLOWER INFO-----"
+    #puts "-----GET FOLLOWER INFO-----"
     followers = @fd.get_followers(twitter_id)
     texts = @fd.get_descriptions(followers).join
-    puts "-----ANALYZE KEYWORD-----"
-    @at.keyword(texts)
-    puts "-----END-----"
-  end
-
-  def all
-
+    #puts "-----ANALYZE KEYWORD-----"
+    return @at.keyword(texts)
+    #puts "-----END-----"
   end
 end
 
-twitter_id = ARGV[0]
-af = AnalyzeFollower.new
-af.get_fw_kw(twitter_id)
+#twitter_id = ARGV[0]
+#af = AnalyzeFollower.new
+#af.get_fw_kw(twitter_id)
