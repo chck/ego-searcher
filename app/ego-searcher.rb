@@ -3,6 +3,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require "sinatra/config_file"
+require 'coffee-script'
 require_relative 'services/analyze-follower'
 
 class EgoSearcher < Sinatra::Base

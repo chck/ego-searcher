@@ -7,6 +7,7 @@ gem 'coffee-script'
 
 group :development do 
   gem 'sinatra-contrib', :require => 'sinatra/reloader'
+  gem 'rake'
 end
 
 group :test do
