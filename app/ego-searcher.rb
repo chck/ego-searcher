@@ -22,4 +22,8 @@ class EgoSearcher < Sinatra::Base
     puts "done!"
     erb :index
   end
+
+  get '/js/script.js' do
+    coffee :script
+  end
 end
