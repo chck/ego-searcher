@@ -30,7 +30,7 @@ class DescFollower
         follower_list << accounts_temp
       end
       follower_list.flatten.each do |user|
-        puts "#{i+=1}: #{user.screen_name}"
+#        puts "#{i+=1}: #{user.screen_name}"
         users << user#.description
       end
     rescue Twitter::Error::TooManyRequests => error

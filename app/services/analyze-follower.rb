@@ -22,8 +22,8 @@ class AnalyzeFollower
   end
 end
 
-# twitter_id = ARGV[0]
-# af = AnalyzeFollower.new
-# af.get_fw_kw(twitter_id).each do |k,v|
-#   puts "#{k}\t\t\t#{v}"
-# end
+twitter_id = ARGV[0]
+af = AnalyzeFollower.new
+af.get_fw_kw(twitter_id).each do |k,v|
+  puts "#{k}\t\t\t#{v}"
+end

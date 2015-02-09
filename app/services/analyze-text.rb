@@ -8,13 +8,13 @@ require 'pry'
 
 class AnalyzeText
   def initialize
-    @exclude_txt_path = "public/dic/stopword.txt"
+    @exclude_txt_path = "../public/dic/stopword.txt"
     @exclude_words = get_exclude_words
-    # @mecab_option = "-u ../public/dic/custom.dic"
+    @mecab_option = "-u ../public/dic/custom.dic"
   end
 
   def get_exclude_words
-    # open(@exclude_txt_path,"r").readlines.map(&:chomp)
+    open(@exclude_txt_path,"r").readlines.map(&:chomp)
   end
 
   def keyword(text)
