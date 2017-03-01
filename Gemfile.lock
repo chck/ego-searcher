@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/flori/json.git
+  revision: 7f4cfd853f2c919d854fb95548a19980feff17e8
+  branch: v1.8
+  specs:
+    json (1.8.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -18,7 +25,6 @@ GEM
     http (0.6.3)
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
-    json (1.8.2)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
@@ -82,6 +88,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-script
+  json!
   natto
   pry
   rake
@@ -89,3 +96,6 @@ DEPENDENCIES
   sinatra
   sinatra-contrib
   twitter
+
+BUNDLED WITH
+   1.14.5

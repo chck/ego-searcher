@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem 'sinatra', :require => 'sinatra/base'
+gem 'json', github: 'flori/json', branch: 'v1.8'
 gem 'twitter'
 gem 'natto'
 gem 'coffee-script'
