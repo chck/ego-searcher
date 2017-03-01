@@ -8,13 +8,20 @@ require_relative 'desc-follower'
 class AnalyzeFollower
   def initialize
     @fd = DescFollower.new
-    @fd.get_twitter_client
+    @num = 0
+    @fd.get_twitter_client(@num)
     @at = AnalyzeText.new
   end
 
   def get_fw_kw(twitter_id)
     #puts "-----GET FOLLOWER INFO-----"
-    followers = @fd.get_followers(twitter_id)
+    begin
+      followers = @fd.get_followers(twitter_id)
+    rescue => e
+      p "#{e} sec"
+      @fd.get_twitter_client(@num+=1)
+      followers = @fd.get_followers(twitter_id)
+    end
     texts = @fd.get_descriptions(followers).join
     #puts "-----ANALYZE KEYWORD-----"
     return @at.keyword(texts)

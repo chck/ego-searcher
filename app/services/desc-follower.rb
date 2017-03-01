@@ -5,13 +5,13 @@ require 'yaml'
 
 class DescFollower
   #initializeにしない理由がある。スレッドセーフ的な
-  def get_twitter_client
+  def get_twitter_client(num)
     conf = YAML::load_file(File.join("#{__dir__}/../../config", "config.yml"))
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key = conf["tw_consumer_key"]
-      config.consumer_secret = conf["tw_consumer_secret"]
-      config.access_token = conf["tw_access_token"]
-      config.access_token_secret = conf["tw_access_token_secret"]
+      config.consumer_key = conf["tw_consumer_key#{num}"]
+      config.consumer_secret = conf["tw_consumer_secret#{num}"]
+      config.access_token = conf["tw_access_token#{num}"]
+      config.access_token_secret = conf["tw_access_token_secret#{num}"]
     end
     @client
   end
@@ -30,14 +30,17 @@ class DescFollower
         follower_list << accounts_temp
       end
       follower_list.flatten.each do |user|
-#        puts "#{i+=1}: #{user.screen_name}"
+        puts "#{i+=1}: #{user.screen_name}"
         users << user#.description
       end
     rescue Twitter::Error::TooManyRequests => error
+
       sec = error.rate_limit.reset_in
-      puts "wait #{sec} sec"
-      sleep(sec) #規制解除までの秒数
-      retry
+      raise "#{sec}"
+      #TODO: 規制までに取ったFollowerを配列にとっておき、その続きから収集するようにする
+    #  puts "wait #{sec} sec"
+    #  sleep(sec) #規制解除までの秒数
+    #  retry
     ensure
       return users
     end
@@ -49,6 +52,9 @@ class DescFollower
       follower_descriptions << user.description
     end
     return follower_descriptions
+  end
+
+  def main
   end
 end
 
