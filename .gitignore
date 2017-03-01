@@ -1,4 +1,10 @@
-vendor
-.bundle
+vendor/bundle
+/.bundle
+.idea
 .swp
 config
+*.swp
+*~
+.project
+.DS_Store
+.secret

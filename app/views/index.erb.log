@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EgoSearcher</title>
+	<meta name="author" content="d4i"/>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="navbar navbar-inverse">
+		<div class="container">
+			<a class="navbar-brand" href="/">EgoSearcher</a>
+		</div>	
+	</div>
+
+	<div class="container">
+	<form method="post" action="/analysis">
+			<div class="form-group">
+				<label for="twitter_id">twitter_id</label>
+				<input type="text" class="form-control" id="id" name="id" placeholder="Enter twitter id">
+			</div>
+			<button type="submit" class="btn btn-default">Analyze!!</button>
+		</form>
+	</div>
+
+	<div class="container">
+	<svg></svg>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://rawgithub.com/jasondavies/d3-cloud/master/d3.layout.cloud.js"></script>
+	<script type="text/javascript" src="/js/script.js"></script>
+		<% unless @keywords.nil? %>
+		<ul>
+			<% @keywords.each do |keyword| %>
+			<li>
+				<%= keyword %>
+			</li>
+			<% end %>
+		</ul>
+		<% end %>
+	</div>
+</body>
+</html>

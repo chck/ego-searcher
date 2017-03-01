@@ -1,15 +1,15 @@
 #!/usr/bin/env ruby
 #-*- coding:utf-8 -*-
 require 'sinatra/base'
-require 'sinatra/reloader'
-require "sinatra/config_file"
+# require 'sinatra/reloader' if development?
+# require "sinatra/config_file"
 require 'coffee-script'
 require_relative 'services/analyze-follower'
 
 class EgoSearcher < Sinatra::Base
-  configure :development do
-    register Sinatra::Reloader
-  end
+  # configure :development do
+  #   register Sinatra::Reloader
+  # end
 
   get '/' do
     erb :index
